@@ -1,0 +1,137 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  p {line-height: 1.4;}
+  font-family: "Lato",sans-serif;
+}
+
+//////////////////////// Global Color Vars
+$fog: #f0f0f0;
+$dark-blue: #2193b0;
+$light-blue: #6dd5ed;
+
+//////////////////////// NAV RULES
+.navbar {
+  background: white;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, .06);
+  #nav-logo {
+    max-width: 150px;
+    width: 100%;
+  }
+}
+
+
+/////////////////////// REGISTER PAGE
+.register-page {
+  background: #2193b0;
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  //background: white;
+  //background: linear-gradient(to right, white 50%, #2193b0 50%);
+}
+
+div.error {
+  p {font-weight: 700; font-size: 1.1rem; color: red;}
+}
+
+.register.container {
+  padding: 10vh 0;
+  .row {
+    box-shadow: 5px 9px 14px rgba(0, 0, 0, 0.15);
+    background: #2193b0;
+  }
+  .register-content {
+    flex: 1 0 auto;
+    padding: 2rem;
+    img {max-width: 150px; display: block; margin: 3rem auto; width: 100%;}
+    h1 {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      margin: 0 auto 2rem;
+    }
+    p {color: white; font-weight: 400; font-size: 1.25rem; margin: 1rem 0;}
+  }
+  .register-form {
+    background: white;
+    padding: 2rem;
+    flex: 1 0 auto;
+    form {
+      border-radius: 5px;
+      button[type="submit"] {
+        width: 100%;
+        font-size: 1.2rem;
+        background: $dark-blue;
+        border: none;
+        &:hover {background: $light-blue;}
+      }
+      p {
+        text-align: center;
+        a {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
+
+/////////////////////// LOGIN PAGE
+.login-page {
+  background: #2193b0;
+  background: -webkit-linear-gradient(to left, #6dd5ed, #2193b0);
+  background: linear-gradient(to left, #6dd5ed, #2193b0);
+  //background: white;
+  //background: linear-gradient(to left, white 50%, #2193b0 50%);
+}
+
+.login.container {
+  padding: 10vh 0;
+  .row {
+    box-shadow: 5px 9px 14px rgba(0, 0, 0, 0.15);
+    background: white;
+    //flex-flow: row-reverse;
+  }
+  .login-content {
+    background: #2193b0;
+    flex: 1 0 auto;
+    padding: 2rem;
+    img {max-width: 150px; display: block; margin: 3rem auto; width: 100%; transform: scaleX(-1);}
+    h1 {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      margin: 0 auto 2rem;
+    }
+    p {color: white; font-weight: 400; font-size: 1.25rem; margin: 1rem 0;}
+  }
+  .login-form {
+    background: white;
+    padding: 2rem;
+    flex: 1 0 auto;
+    form {
+      border-radius: 5px;
+      button[type="submit"] {
+        width: 100%;
+        font-size: 1.2rem;
+        background: $dark-blue;
+        border: none;
+        &:hover {background: $light-blue;}
+      }
+      p {
+        text-align: center;
+        a {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
+
+/////////////////////// HOME PAGE
+.home-page {
+  background: white;
+}
