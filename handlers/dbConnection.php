@@ -8,8 +8,6 @@ DEFINE('DB_HOST', 'localhost');
 DEFINE('DB_DATABASE', 'blog');
 
 // Initialize Variables
-$username = "";
-$email    = "";
 $errors = array();
 
 // Connect To Blog DB
@@ -22,6 +20,7 @@ if (mysqli_connect_error()) {
 
 include "registrationHandler.php";
 include 'loginHandler.php';
+//include 'getUserData.php';
 
 // Close Connection
 $db -> close();

@@ -12,12 +12,8 @@ include "./handlers/dbConnection.php";
 
 <div class="login container">
     <div class="row justify-content-center align-items-center">
-        <div class="login-content col-sm-6">
-            <h1 class="text-center">Login</h1>
-            <p class="text-center">It's great to see you again!</p>
-            <img src="./assets/images/rocket.svg" alt="rocket">
-        </div>
         <div class="login-form col-sm-6">
+            <h1 class="text-center">Login</h1>
             <form method="post" action="login.php">
                 <div class="form-group">
                     <label for="username">Username</label>

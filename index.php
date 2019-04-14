@@ -13,33 +13,44 @@ if (isset($_GET['logout'])) {
 
 require_once ("./assets/includes/sharedHeader.php");
 
+include "./handlers/getUserData.php";
+// GET USER DATA
+$username = $_SESSION['username'];
+
 ?>
 <body>
 <!-- NAV BAR -->
 <?php include_once("./assets/includes/navigation.php"); ?>
 
-<div class="header">
-    <h2>Home Page</h2>
-</div>
-<div class="content">
-    <!-- notification message -->
-    <?php if (isset($_SESSION['success'])) : ?>
-        <div class="error success" >
-            <h3>
-                <?php
-                echo $_SESSION['success'];
-                unset($_SESSION['success']);
-                ?>
-            </h3>
+<div class="homepage container">
+    <div class="row justify-content-center align-items-start">
+        <div class="welcome-message col-sm-6">
+            <!-- notification message -->
+            <?php if (isset($_SESSION['success'])) : ?>
+                <div class="error success" >
+                    <h4>
+                        <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                        ?>
+                    </h4>
+                </div>
+            <?php endif ?>
+            <!-- logged in user information -->
+            <?php  if (isset($_SESSION['username'])) : ?>
+                <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+                <p> <a href="index.php?logout='1'" class="btn btn-danger">logout</a> </p>
+            <?php endif ?>
         </div>
-    <?php endif ?>
-
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
-        <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-        <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-    <?php endif ?>
+        <div class="user-info col-sm-6">
+            <details>
+                <summary>Your Information</summary>
+                <?php getUserData($username); ?>
+            </details>
+        </div>
+    </div>
 </div>
+
 
 </body>
 </html>
