@@ -20,7 +20,8 @@ if (mysqli_connect_error()) {
 
 include "registrationHandler.php";
 include 'loginHandler.php';
-//include 'getUserData.php';
+include 'functions.php';
+include 'admin/adminFunctions.php';
 
 // Close Connection
 $db -> close();

@@ -1,0 +1,54 @@
+//////////////////////// NAV AND SIDEBAR RULES
+.navbar {
+  background: white;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, .06);
+  #nav-logo {
+    max-width: 150px;
+    width: 100%;
+  }
+}
+
+
+//////////////////////// SIDEBAR
+
+#sidebar {
+  display: flex;
+  flex-flow: column;
+  background: #484949;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, .06);
+  height: 100vh;
+  position: sticky;
+  max-width: 300px;
+  .sidebar-brand {
+    background: $dark-boulder;
+    padding: 1rem 0.5rem;
+    #nav-logo {
+      display: block;
+      margin: 0 auto;
+      max-width: 120px;
+      width: 100%;
+    }
+  }
+  .sidebar-links {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 1.5rem;
+    a {
+      color: white;
+      font-size: 1.1rem;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      &:hover {background: $dark-boulder; text-decoration: none;}
+    }
+    a.btn-danger {
+      margin: 1rem auto;
+      max-width: 95%;
+      position: absolute;
+      bottom: 0;
+      align-self: center;
+      background: $dark-boulder;
+      &:hover {background: #dc3545;}
+    }
+  }
+}

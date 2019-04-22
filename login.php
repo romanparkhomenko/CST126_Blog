@@ -9,7 +9,6 @@ include "./handlers/dbConnection.php";
 
 <!-- NAV BAR -->
 <?php include_once("./assets/includes/navigation.php"); ?>
-
 <div class="login container">
     <div class="row justify-content-center align-items-center">
         <div class="login-form col-sm-6">

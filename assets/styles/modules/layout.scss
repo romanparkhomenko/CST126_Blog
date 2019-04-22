@@ -1,0 +1,24 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  p {line-height: 1.4;}
+  font-family: "Lato",sans-serif;
+}
+
+//////////////////////// Global Color Vars
+$fog: #f0f0f0;
+$dark-blue: #2193b0;
+$light-blue: #6dd5ed;
+$boulder: #484949;
+$dark-boulder: #2f2f2f;
+
+//////////////////////// LAYOUT
+
+div.wrapper {
+  display: grid;
+  grid-template-columns: minmax(min-content, 18%) minmax(min-content, 82%);
+  font-family: 'Lato', sans-serif;
+  font-variant-ligatures: common-ligatures;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}

@@ -5,6 +5,7 @@ if (isset($_POST['register_user'])) {
     // Receive all input values from the registration form
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
+    $role = mysqli_real_escape_string($db, "Admin");
     $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
     $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
     $firstname = mysqli_real_escape_string($db, $_POST['firstname']);
@@ -49,8 +50,8 @@ if (isset($_POST['register_user'])) {
         //encrypt the password before saving in the database
         $password = md5($password_1);
 
-        $query = "INSERT INTO `users` (`username`, `email`, `password`, `firstname`, `lastname`, `middlename`, `nickname`, `address1`, `address2`, `city`, `state`, `zipcode`) 
-  			  VALUES('$username', '$email', '$password', '$firstname', '$lastname', '$middlename', '$nickname', '$address1', '$address2', '$city', '$state', '$zipcode')";
+        $query = "INSERT INTO `users` (`username`, `email`, `role`, `password`, `firstname`, `lastname`, `middlename`, `nickname`, `address1`, `address2`, `city`, `state`, `zipcode`) 
+  			  VALUES('$username', '$email', '$role', '$password', '$firstname', '$lastname', '$middlename', '$nickname', '$address1', '$address2', '$city', '$state', '$zipcode')";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";

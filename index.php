@@ -11,46 +11,67 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
+// SHARED HEADER
+include ("./handlers/dbConnection.php");
 require_once ("./assets/includes/sharedHeader.php");
 
-include "./handlers/getUserData.php";
 // GET USER DATA
+include "./handlers/getUserData.php";
 $username = $_SESSION['username'];
+
+// GET PUBLISHED POSTS
+$posts = getPublishedPosts();
+
 
 ?>
 <body>
-<!-- NAV BAR -->
-<?php include_once("./assets/includes/navigation.php"); ?>
 
-<div class="homepage container">
-    <div class="row justify-content-center align-items-start">
-        <div class="welcome-message col-sm-6">
-            <!-- notification message -->
-            <?php if (isset($_SESSION['success'])) : ?>
-                <div class="error success" >
-                    <h4>
-                        <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                        ?>
-                    </h4>
-                </div>
-            <?php endif ?>
-            <!-- logged in user information -->
-            <?php  if (isset($_SESSION['username'])) : ?>
-                <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-                <p> <a href="index.php?logout='1'" class="btn btn-danger">logout</a> </p>
-            <?php endif ?>
+<div class="wrapper">
+    <!-- SIDE BAR -->
+    <div class="sidebar">
+        <?php include_once("./assets/includes/sidebar.php"); ?>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="homepage fluid-container">
+        <div class="row justify-content-center align-items-start header-row">
+            <div class="welcome col-sm-9">
+                <h1>Welcome <strong><?php echo $_SESSION['username']; ?></strong></h1>
+            </div>
+            <div class="user-info col-sm-3">
+                <details>
+                    <summary>Your Information</summary>
+                    <?php getUserData($username); ?>
+                </details>
+            </div>
         </div>
-        <div class="user-info col-sm-6">
-            <details>
-                <summary>Your Information</summary>
-                <?php getUserData($username); ?>
-            </details>
+
+        <!-- Loop through and display public posts -->
+        <div class="row blog-content">
+            <h3>Recent Posts:</h3>
+            <div class="posts row">
+                <?php foreach ($posts as $post): ?>
+                    <div class="col-sm-4 post">
+                        <a class="post-link" href="/blog/single_post.php?post-slug=<?php echo $post['slug']; ?>">
+                            <img src="<?php echo '/blog/assets/images/' . $post['image']; ?>" class="post_image" alt="">
+                            <div class="post_info">
+                                <h3><?php echo $post['title'] ?></h3>
+                                <div class="info">
+                                    <p><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></p>
+                                    <p class="read_more">Read more...</p>
+                                </div>
+                            </div>
+                        </a>
+                        <?php if (isset($post['topic']['name'])): ?>
+                            <a href="<?php echo '/blog/filtered_posts.php?topic=' . $post['topic']['id'] ?>" class="category"><?php echo $post['topic']['name'] ?></a>
+                        <?php endif ?>
+                    </div>
+                <?php endforeach ?>
+            </div>
         </div>
     </div>
-</div>
 
+</div>
 
 </body>
 </html>
