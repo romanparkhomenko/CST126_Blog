@@ -27,6 +27,8 @@ function getUserData($username) {
             echo '<p>ID: '.$row["id"].'</p>';
             echo '<p>Username: '.$row["username"].'</p>';
             echo '<p>Email: '.$row["email"].'</p>';
+            echo '<p>Role: '.$row["role"].'</p>';
+            $_SESSION['role'] = $row["role"];
             echo '<p>First Name: '.$row["firstname"].'</p>';
             echo '<p>Last Name: '.$row["lastname"].'</p>';
             echo '<p>Middle Name: '.$row["middlename"].'</p>';

@@ -29,48 +29,52 @@ $roles = ['Admin', 'Author'];
         </div>
 
         <div class="row blog-content">
-
             <div class="users-form col-sm-3">
-                <form method="post" action="users.php">
-                    <?php if ($isEditingUser === true): ?>
-                        <input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
-                    <?php endif ?>
+                <?php if ($_SESSION['role'] == "Admin"): ?>
+                    <form method="post" action="users.php">
+                        <?php if ($isEditingUser === true): ?>
+                            <input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
+                        <?php endif ?>
 
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input id="username" class="form-control" placeholder="Enter username" value="<?php echo $username; ?>" type="text" name="username"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" class="form-control" placeholder="Enter email" value="<?php echo $email; ?>" name="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password1">Password</label>
-                        <input id="password1" class="form-control" placeholder="Enter password" type="password" name="password1"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password2">Confirm Password</label>
-                        <input id="password2" class="form-control" placeholder="Confirm password" type="password" name="password2"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select class="form-control" name="role" id="role">
-                            <option value="" selected disabled>Assign role</option>
-                            <?php foreach ($roles as $key => $role): ?>
-                                <option value="<?php echo $role; ?>"><?php echo $role; ?></option>
-                            <?php endforeach ?>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input id="username" class="form-control" placeholder="Enter username" value="<?php echo $username; ?>" type="text" name="username"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" class="form-control" placeholder="Enter email" value="<?php echo $email; ?>" name="email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Password</label>
+                            <input id="password1" class="form-control" placeholder="Enter password" type="password" name="password1"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Confirm Password</label>
+                            <input id="password2" class="form-control" placeholder="Confirm password" type="password" name="password2"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select class="form-control" name="role" id="role">
+                                <option value="" selected disabled>Assign role</option>
+                                <?php foreach ($roles as $key => $role): ?>
+                                    <option value="<?php echo $role; ?>"><?php echo $role; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
 
-                    <!-- if editing user, display the update button instead of create button -->
-                    <?php if ($isEditingUser === true): ?>
-                        <button type="submit" class="btn btn-secondary" name="update_admin">Update</button>
-                    <?php else: ?>
-                        <button type="submit" class="btn btn-primary" name="create_admin">Save User</button>
-                    <?php endif ?>
+                        <!-- if editing user, display the update button instead of create button -->
+                        <?php if ($isEditingUser === true): ?>
+                            <button type="submit" class="btn btn-secondary" name="update_admin">Update</button>
+                        <?php else: ?>
+                            <button type="submit" class="btn btn-primary" name="create_admin">Save User</button>
+                        <?php endif ?>
 
-                    <?php include('../errors.php') ?>
-                </form>
+                        <?php include('../errors.php') ?>
+                    </form>
+                <?php endif ?>
+                <?php if ($_SESSION['role'] == "Author"): ?>
+                    <h3>Whoops, you don't have access to add new users.</h3>
+                <?php endif ?>
             </div>
 
             <!-- Display records from DB-->

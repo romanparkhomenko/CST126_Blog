@@ -31,6 +31,7 @@ function getPublishedPosts() {
     // Close Connection
     $db -> close();
 
+
     return $final_posts;
 }
 
