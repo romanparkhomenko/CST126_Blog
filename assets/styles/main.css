@@ -161,9 +161,9 @@ div.error p {
   margin-bottom: 1.5rem;
 }
 .homepage.fluid-container div.row.blog-content div.post {
-  box-shadow: 5px 9px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.15);
   transition: all 250ms;
-  margin: 0 1rem;
+  margin: 0.5rem 1rem;
 }
 .homepage.fluid-container div.row.blog-content div.post img.post_image {
   display: block;
@@ -199,7 +199,7 @@ div.error p {
   display: inline-block;
 }
 .homepage.fluid-container div.row.blog-content div.post:hover {
-  box-shadow: 10px 16px 18px rgba(0, 0, 0, 0.17);
+  box-shadow: 6px 7px 8px rgba(0, 0, 0, 0.17);
   transition: all 250ms;
 }
 
@@ -289,6 +289,79 @@ div.error p {
   display: block;
   width: 100%;
   max-width: 150px;
+}
+.single-posts.fluid-container div.row.blog-content div.full-post {
+  border-bottom: 0.5px solid #484949;
+  margin-bottom: 1rem;
+}
+.single-posts.fluid-container div.row.blog-content div.full-post .post-body-div {
+  margin-bottom: 3rem;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section img.profile-pic {
+  max-width: 25px;
+  margin: 0 1rem 0 0;
+  border-radius: 50%;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section h4 {
+  color: #484949;
+  text-align: center;
+  font-size: 1rem;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment {
+  padding: 0.5rem;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-details {
+  display: flex;
+  align-items: center;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-details div.details {
+  flex: 1 0 auto;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-details div.details p.comment-name {
+  color: #2193b0;
+  font-size: 1rem;
+  margin: 0;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-details div.details p.comment-date {
+  color: #2f2f2f;
+  font-size: 0.7rem;
+  margin: 0;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-body {
+  padding: 0 1rem;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-body p {
+  font-weight: bold;
+  width: 95%;
+  margin: 1rem auto;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment-body a.reply-btn {
+  text-align: right;
+  width: 100%;
+  display: block;
+  padding-bottom: 0.5rem;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment form.reply_form {
+  width: 100%;
+  display: none;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment:nth-of-type(odd) {
+  background: #f0f0f0;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment {
+  border-left: 0.5px solid #484949;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment:nth-of-type(odd) {
+  background: white;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section div.comment div.comment:nth-of-type(even) {
+  background: #f0f0f0;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section form#comment_form label {
+  display: none;
+}
+.single-posts.fluid-container div.row.blog-content div.comments-section form#comment_form textarea#comment_text {
+  margin: 1rem auto 0.5rem;
 }
 
 .users.fluid-container {
@@ -390,6 +463,28 @@ div.error p {
 }
 .create-post.fluid-container div.row.blog-content form input#publish {
   max-width: 35px;
+}
+
+.search-page.fluid-container {
+  background: white;
+  height: 100vh;
+  overflow: scroll;
+}
+.search-page.fluid-container div.row.header-row {
+  padding: 1rem 5vh;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+.search-page.fluid-container div.row.blog-content {
+  padding: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-page.fluid-container div.row.blog-content div.search-blog {
+  margin: 0 auto 2rem;
+}
+.search-page.fluid-container div.row.blog-content div.search-blog label {
+  visibility: hidden;
 }
 
 .navbar {

@@ -9,6 +9,7 @@
         <a href="/blog/handlers/admin/posts.php">Manage Posts</a>
         <a href="/blog/handlers/admin/users.php">Add Users</a>
         <a href="/blog/handlers/admin/create_post.php">Add Posts</a>
+        <a href="/blog/search.php">Search</a>
         <!-- Change Nav link based on if logged in or not. -->
         <?php
         if(isset( $_SESSION["username"]) ) {

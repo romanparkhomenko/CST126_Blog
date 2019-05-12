@@ -25,6 +25,7 @@ function getUserData($username) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo '<p>ID: '.$row["id"].'</p>';
+            $_SESSION['user_id'] = $row["id"];
             echo '<p>Username: '.$row["username"].'</p>';
             echo '<p>Email: '.$row["email"].'</p>';
             echo '<p>Role: '.$row["role"].'</p>';

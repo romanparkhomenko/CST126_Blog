@@ -24,6 +24,7 @@ $posts = getPublishedPosts();
 
 
 ?>
+
 <body>
 
 <div class="wrapper">

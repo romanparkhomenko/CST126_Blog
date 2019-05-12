@@ -116,3 +116,4 @@ function getAllTCategories() {
 
     return $categories;
 }
+

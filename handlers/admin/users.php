@@ -3,6 +3,7 @@ $pageTitle = "Roman's Blog | Users";
 
 // SHARED HEADER
 include ("../dbConnection.php");
+include ("../commentsHandler.php");
 require_once ("../../assets/includes/sharedHeader.php");
 
 // GET ADMINS FROM DB
