@@ -1,4 +1,12 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * Categories Module
+ * Roman Parkhomenko
+ * 05/18/2019
+ * This page allows a user to create and edit different post topics/categories.
+*/
+
 $pageTitle = "Roman's Blog | Categories";
 
 // SHARED HEADER

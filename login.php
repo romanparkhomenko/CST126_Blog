@@ -1,4 +1,12 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * Login Page
+ * Roman Parkhomenko
+ * 05/18/2019
+ * This page presents the user with a form to enter their login credentials and
+ * be redirected to the home page.
+*/
 $pageTitle = "Roman's Blog | Login";
 require_once ("./assets/includes/sharedHeader.php");
 include "./handlers/dbConnection.php";

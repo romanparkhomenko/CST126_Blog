@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * CST-126 Blog Project Version 8
+ * Login Handler
+ * Roman Parkhomenko
+ * 05/18/2019
+ * This PHP script listens for the HTTP Post method for login_user and makes
+ * a query to the database authenticating that the credentials match an existing user row.
+*/
+
 // LOGIN USER
 if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);

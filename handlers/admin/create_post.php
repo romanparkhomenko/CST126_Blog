@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * CST-126 Blog Project Version 8
+ * Create Post Module
+ * Roman Parkhomenko
+ * 05/18/2019
+ * This page allows a user to create a new post by utilizing the WYSIWIG Editor from CKEDITOR in addition to
+ * uploading a thumbnail image for the post.
+*/
+
 $pageTitle = "Roman's Blog | Create Post";
 
 // SHARED HEADER
@@ -24,6 +34,9 @@ $categories = getAllCategories();
             <div class="welcome col-sm-12">
                 <h1 class="page-title">Create Post</h1>
             </div>
+
+            <?php include('../messages.php') ?>
+
         </div>
 
         <div class="row blog-content">

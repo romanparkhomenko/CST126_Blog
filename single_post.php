@@ -1,4 +1,13 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * Single Post Module
+ * Roman Parkhomenko
+ * 05/18/2019
+ * The purpose of this module is to display the full post and comments
+ * module to a user. This page also contains a category sidebar for users to
+ * search posts by category.
+*/
 
 // SHARED HEADER
 include ("./handlers/dbConnection.php");
@@ -53,9 +62,9 @@ include "./handlers/commentsHandler.php";
                     <!-- comments wrapper -->
                     <div id="comments-wrapper">
                         <?php if (isset($comments)): ?>
-                            <!-- Display comments -->
+                            <!-- Display All Comments -->
                             <?php foreach ($comments as $comment): ?>
-                                <!-- comment -->
+                                <!-- Comment Box -->
                                 <div class="comment clearfix">
                                     <div class="comment-details">
                                         <div class="image">
@@ -70,7 +79,7 @@ include "./handlers/commentsHandler.php";
                                         <p><?php echo $comment['body']; ?></p>
                                         <a class="reply-btn" href="#" data-id="<?php echo $comment['id']; ?>">Reply</a>
                                     </div>
-                                    <!-- reply form -->
+                                    <!-- Reply Form -->
                                     <form action="single_post.php" class="reply_form" id="comment_reply_form_<?php echo $comment['id'] ?>" data-id="<?php echo $comment['id']; ?>">
                                         <textarea class="form-control" name="reply_text" id="reply_text" cols="30" rows="2"></textarea>
                                         <button class="btn btn-primary btn-xs pull-right submit-reply">Submit reply</button>
@@ -81,7 +90,7 @@ include "./handlers/commentsHandler.php";
                                     <div class="replies_wrapper_<?php echo $comment['id']; ?>">
                                         <?php if (isset($replies)): ?>
                                             <?php foreach ($replies as $reply): ?>
-                                                <!-- reply -->
+                                                <!-- Reply -->
                                                 <div class="comment reply clearfix">
                                                     <div class="comment-details">
                                                         <div class="image">
@@ -94,19 +103,17 @@ include "./handlers/commentsHandler.php";
                                                     </div>
                                                     <div class="comment-body">
                                                         <p><?php echo $reply['body']; ?></p>
-<!--                                                        <a class="reply-btn" href="#">Reply</a>-->
                                                     </div>
                                                 </div>
                                             <?php endforeach ?>
                                         <?php endif ?>
                                     </div>
                                 </div>
-                                <!-- // comment -->
                             <?php endforeach ?>
                         <?php else: ?>
                             <h2>Be the first to comment on this post</h2>
                         <?php endif ?>
-                    </div><!-- comments wrapper -->
+                    </div>
                     <!-- No Commenting if user not signed in. -->
                     <?php if (isset($user_id)): ?>
                         <form class="clearfix" action="single_post.php" method="post" id="comment_form">
@@ -123,7 +130,7 @@ include "./handlers/commentsHandler.php";
                 <!-- End Comments  -->
             </div>
 
-            <!-- post sidebar -->
+            <!-- Categories Sidebar Menu-->
             <div class="post-sidebar col-sm-3">
                 <div class="card">
                     <div class="card-header">
@@ -150,8 +157,11 @@ include "./handlers/commentsHandler.php";
             e.preventDefault();
             var comment_text = $('#comment_text').val();
             var url = "/blog/handlers/commentsHandler.php";
-            // Stop executing if not value is entered
-            if (comment_text === "" ) return;
+            // Don't execute if field is empty.
+            if (comment_text === "" ) {
+                console.log("Empty Field");
+                return;
+            }
             $.ajax({
                 url: url,
                 type: "POST",
@@ -160,10 +170,10 @@ include "./handlers/commentsHandler.php";
                     comment_posted: 1
                 },
                 success: function(data){
-                    var response = JSON.stringify(data);
+                    var response = data;
                     console.log(response);
                     if (data === "error") {
-                        alert('There was an error adding comment. Please try again');
+                        alert('There was an error adding your comment. Please try again');
                     } else {
                         $('#comments-wrapper').prepend(response.comment);
                         $('#comments_count').text(response.comments_count);
@@ -182,7 +192,7 @@ include "./handlers/commentsHandler.php";
                 e.preventDefault();
                 var reply_textarea = $(this).siblings('textarea');
                 var reply_text = $(this).siblings('textarea').val();
-                var url = "/blog/single_post.php";
+                var url = "/blog/handlers/commentsHandler.php";
                 $.ajax({
                     url: url,
                     type: "POST",

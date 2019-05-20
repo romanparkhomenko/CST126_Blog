@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * CST-126 Blog Project Version 8
+ * Comments Handler
+ * Roman Parkhomenko
+ * 05/18/2019
+ * The purpose of the registration page is to add new users to the users table. It contains
+ * validation parameters for certain fields to ensure they're not empty.
+*/
+
 $pageTitle = "Roman's Blog | Registration";
 require_once ("./assets/includes/sharedHeader.php");
 include "./handlers/dbConnection.php";

@@ -1,4 +1,14 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * GetUserData Function
+ * Roman Parkhomenko
+ * 05/18/2019
+ * The purpose of this function is to get the user data
+ * to display on the homepage. In addition to printing the data,
+ * some of the user properties such as role and username are saved to
+ * the session array to be accessible in other modules.
+*/
 
 function getUserData($username) {
 
@@ -27,6 +37,7 @@ function getUserData($username) {
             echo '<p>ID: '.$row["id"].'</p>';
             $_SESSION['user_id'] = $row["id"];
             echo '<p>Username: '.$row["username"].'</p>';
+            $_SESSION['username'] = $row["username"];
             echo '<p>Email: '.$row["email"].'</p>';
             echo '<p>Role: '.$row["role"].'</p>';
             $_SESSION['role'] = $row["role"];

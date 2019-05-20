@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * CST-126 Blog Project Version 8
+ * DB Connections
+ * Roman Parkhomenko
+ * 05/18/2019
+ * This file sets global connection variables, starts the user session, and contains the functions
+ * to be used throughout the application.
+*/
+
 session_start();
 
 // Constants for DB Connection

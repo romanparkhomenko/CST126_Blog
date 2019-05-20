@@ -1,4 +1,13 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * Filtered Posts
+ * Roman Parkhomenko
+ * 05/18/2019
+ * The purpose of this page is to display a list of posts filtered by
+ * a user selected category.
+*/
+
 // SHARED HEADER
 include ("./handlers/dbConnection.php");
 require_once ("./assets/includes/sharedHeader.php");

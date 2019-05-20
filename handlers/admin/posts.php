@@ -1,4 +1,12 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * Posts Module
+ * Roman Parkhomenko
+ * 05/18/2019
+ * This page allows a user to view a list of all existing posts, and edit or delete them.
+*/
+
 $pageTitle = "Roman's Blog | Posts";
 
 // SHARED HEADER

@@ -103,12 +103,16 @@ $roles = ['Admin', 'Author'];
                                 <td><?php echo $admin['username']; ?></td>
                                 <td><?php echo $admin['email']; ?></td>
                                 <td><?php echo $admin['role']; ?></td>
+                                <?php if ($_SESSION['role'] == "Author"): ?>
+                                    <td>You don't have access to edit users.</td>
+                                <?php else: ?>
                                 <td>
                                     <a class="fa fa-pencil btn edit" href="users.php?edit-admin=<?php echo $admin['id'] ?>"></a>
                                 </td>
                                 <td>
                                     <a class="fa fa-trash btn delete" href="users.php?delete-admin=<?php echo $admin['id'] ?>"></a>
                                 </td>
+                                <?php endif ?>
                             </tr>
                         <?php endforeach ?>
                         </tbody>

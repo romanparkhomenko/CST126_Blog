@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * CST-126 Blog Project Version 8
+ * Admin Functions
+ * Roman Parkhomenko
+ * 05/18/2019
+ * These functions process the CRUD operations for the users and posts in the database. Some of these are
+ * limited to admin roles, but most work for any user to be able to read, edit, create, and delete posts.
+*/
+
 // Constants for DB Connection
 DEFINE('DB_USERNAME', 'root');
 DEFINE('DB_PASSWORD', 'root');
@@ -126,7 +135,7 @@ function editAdmin($admin_id) {
 
     global $username, $role, $isEditingUser, $admin_id, $email;
 
-    $sql = "SELECT * FROM users WHERE id=$admin_id LIMIT 1";
+    $sql = "SELECT * FROM users WHERE id='$admin_id' LIMIT 1";
     $result = mysqli_query($db, $sql);
     $admin = mysqli_fetch_assoc($result);
 
@@ -163,7 +172,7 @@ function updateAdmin($request_values) {
         //encrypt the password (security purposes)
         $password = md5($password1);
 
-        $query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
+        $query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id='$admin_id'";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "Admin user updated successfully";
@@ -176,7 +185,7 @@ function deleteAdmin($admin_id) {
     // Connect To Blog DB
     $db = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-    $sql = "DELETE FROM users WHERE id=$admin_id";
+    $sql = "DELETE FROM users WHERE id='$admin_id'";
 
     if (mysqli_query($db, $sql)) {
         $_SESSION['message'] = "User successfully deleted";
@@ -233,13 +242,13 @@ function createTopic($request_values) {
     $topic_slug = makeSlug($topic_name);
     // Validate Form Input
     if (empty($topic_name)) {
-        array_push($errors, "Topic name required");
+        array_push($errors, "Category name required");
     }
     // Check duplicate categories
     $topic_check_query = "SELECT * FROM categories WHERE slug='$topic_slug' LIMIT 1";
     $result = mysqli_query($db, $topic_check_query);
     if (mysqli_num_rows($result) > 0) {
-        array_push($errors, "Topic already exists");
+        array_push($errors, "Category already exists");
     }
     // Create category
     if (count($errors) == 0) {
@@ -259,7 +268,7 @@ function editTopic($topic_id) {
     $db = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     global $topic_name, $isEditingTopic, $topic_id;
-    $sql = "SELECT * FROM categories WHERE id=$topic_id LIMIT 1";
+    $sql = "SELECT * FROM categories WHERE id='$topic_id' LIMIT 1";
 
     $result = mysqli_query($db, $sql);
     $topic = mysqli_fetch_assoc($result);
@@ -284,7 +293,7 @@ function updateTopic($request_values) {
 
     // Register Category
     if (count($errors) == 0) {
-        $query = "UPDATE categories SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
+        $query = "UPDATE categories SET name='$topic_name', slug='$topic_slug' WHERE id='$topic_id'";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "Category updated successfully";

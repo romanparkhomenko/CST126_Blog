@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * CST-126 Blog Project Version 8
+ * Search Module
+ * Roman Parkhomenko
+ * 05/18/2019
+ * The search module presents the user with an input field. Once the user starts typing,
+ * a query will be made with each key stroke, presenting the user a live response via Ajax.
+*/
+
 $pageTitle = "Search Module";
 require_once ("./assets/includes/sharedHeader.php");
 include "./handlers/dbConnection.php";

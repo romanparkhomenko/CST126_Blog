@@ -1,4 +1,15 @@
 <?php
+/*
+ * CST-126 Blog Project Version 8
+ * Index/Home Page
+ * Roman Parkhomenko
+ * 05/18/2019
+ * The purpose of this page is to display the information for
+ * the logged in user, as well as allow them to see recent posts.
+ * If a non-authenticated user tries to access this page, they will be
+ * redirected to the login screen.
+*/
+
 session_start();
 
 if (!isset($_SESSION['username'])) {
